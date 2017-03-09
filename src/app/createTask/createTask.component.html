@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id='createTask'>
+    <form class="form-horizontal">
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Date:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" #date>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Title:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" #title placeholder="Enter title">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2">Description:</label>
+            <div class="col-sm-10">
+            <textarea class="form-control" #description placeholder="Enter Details">
+                </textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2">Priority</label>
+            <div class="col-sm-10">
+                <select class="form-control" #priority>
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary"
+                        (click)="saveTask(date.value,title.value,description.value,priority.value)">Submit</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success" (click)="showFormValues()">Show Tasks</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="container"  [hidden]="!showLink" #showDiv>
+    <ul>
+        <li *ngFor="let task of myTasks" style="border: double ; border-color: #005fb3">
+            <div><h3><b>TASK</b></h3></div>
+            <div >
+                <mark><b>Title</b>=</mark>{{task.title}}
+                <mark><b>Description</b>=</mark>{{task.desc}}
+                <mark><b>Date</b>=</mark>{{task.date}}
+                <mark><b>Priority</b>=</mark>{{task.priority}}
+            </div>
+            <div >
+                <button class="btn-success" value="edit" (click)="edit()" style="margin-left: 1em">Edit</button>
+                <button class="btn-success" value="done" (click)="done(myTasks.indexOf(task))" style="margin-left: 1em">
+                    Done
+                </button>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
+

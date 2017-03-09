@@ -8,29 +8,52 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+/**
+ * Created by prashant on 19-02-2017.
+ */
 const core_1 = require('@angular/core');
+const task_1 = require('../task');
 const app_service_1 = require("../app.service");
-let HomeComponent = class HomeComponent {
+let CreateTaskComponent = class CreateTaskComponent {
     constructor(service) {
         this.service = service;
         this.showLink = false;
     }
+    saveTask(date, title, desc, priority) {
+        this.service.tasks.push(new task_1.Task(date, title, desc, priority));
+        this.myTasks = this.service.tasks;
+        alert("Task Created");
+    }
+    showFormValues() {
+        this.showLink = true;
+        //
+        // for(let i=0;i<this.myTasks.length;i++){
+        //     alert("Date  :  " + this.service.tasks[i].date);
+        //     alert("Tasks are :  " + this.service.tasks[i].title);
+        //     alert("Tasks are :  " + this.service.tasks[i].desc);
+        //     alert("Tasks are :  " + this.service.tasks[i].priority);
+        //
+        // }
+        // //alert("date selected is "+this.formDate);
+    }
+    done(position) {
+        this.service.tasks.splice(position, 1);
+    }
+    edit() {
+        this.setCreateLink();
+    }
     ngOnInit() {
         this.myTasks = this.service.tasks;
     }
-    update() {
-        this.myTasks = this.service.tasks;
-        this.showLink = true;
-    }
 };
-HomeComponent = __decorate([
+CreateTaskComponent = __decorate([
     core_1.Component({
-        selector: 'home',
-        templateUrl: './app/home/home.component.html',
+        selector: 'createTask',
+        templateUrl: './app/createTask/createTask.component.html',
         styleUrls: [''],
         providers: [app_service_1.AppService]
     }), 
     __metadata('design:paramtypes', [app_service_1.AppService])
-], HomeComponent);
-exports.HomeComponent = HomeComponent;
-//# sourceMappingURL=home.component.js.map
+], CreateTaskComponent);
+exports.CreateTaskComponent = CreateTaskComponent;
+//# sourceMappingURL=createTask.component.js.map

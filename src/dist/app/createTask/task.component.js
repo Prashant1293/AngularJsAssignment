@@ -12,28 +12,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by prashant on 19-02-2017.
  */
 const core_1 = require('@angular/core');
-const router_1 = require('@angular/router');
-let TaskComponent = class TaskComponent {
-    constructor(router) {
-        this.router = router;
+const task_1 = require('./app/task');
+const app_service_1 = require("../app.service");
+let CreateTaskComponent = class CreateTaskComponent {
+    constructor(service) {
+        this.service = service;
     }
-    goToLogin() {
-        this.router.navigate(['login']);
+    saveTask(date, title, desc, priority) {
+        this.service.tasks.push(new task_1.Task(date, title, desc, priority));
+        this.tasks = this.service.tasks;
+        alert("Task Created");
     }
-    showTasks() {
-        this.router.navigate(['tasks']);
+    showFormValues() {
+        alert("Tasks are :  " + this.service.tasks(0));
+        //alert("date selected is "+this.formDate);
     }
-    sendRouteParams() {
-        this.router.navigate(['details', 3]);
+    ngOnInit() {
+        this.tasks = this.service.tasks;
     }
 };
-TaskComponent = __decorate([
+CreateTaskComponent = __decorate([
     core_1.Component({
         selector: 'home',
-        templateUrl: './app/home/home.component.html',
-        styleUrls: ['']
+        templateUrl: './app/createTask/createTask.component.html',
+        styleUrls: [''],
+        providers: [app_service_1.AppService]
     }), 
-    __metadata('design:paramtypes', [router_1.Router])
-], TaskComponent);
-exports.TaskComponent = TaskComponent;
+    __metadata('design:paramtypes', [app_service_1.AppService])
+], CreateTaskComponent);
+exports.CreateTaskComponent = CreateTaskComponent;
 //# sourceMappingURL=task.component.js.map

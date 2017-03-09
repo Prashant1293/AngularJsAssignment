@@ -11,16 +11,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require('@angular/core');
 let AppService = class AppService {
     constructor() {
-        this.interns = [{
-                name: 'Akshay',
-                id: 1
-            }, {
-                name: 'Akhil',
-                id: 2
-            }, {
-                name: 'Kunal',
-                id: 3
-            }];
+        // interns: Intern[] = [{
+        //   name : 'Akshay',
+        //   id : 1
+        // },{
+        //   name : 'Akhil',
+        //   id : 2
+        // },{
+        //   name : 'Kunal',
+        //   id : 3
+        // }];
+        //
+        this.tasks = [
+            {
+                date: "01-1-2014",
+                title: "abc",
+                desc: "ashbj",
+                priority: "jhdjs"
+            }
+        ];
     }
 };
 AppService = __decorate([

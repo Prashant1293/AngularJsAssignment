@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Intern} from "./intern";
+//import {Intern} from "./intern";
+import {Task} from "./task";
+
 import {AppService} from "./app.service";
 
 @Component({
@@ -8,42 +10,49 @@ import {AppService} from "./app.service";
   providers : [AppService]
 })
 export class AppComponent implements OnInit{
-  name = 'Angular';
-  color: string = 'red';
-  intern: Intern = new Intern();
-  myInterns: Intern[];
-  formDate: Date[]=[];
-  formTitle: string[]=[];
-  formDescription: string[]=[];
-  formPriority: string[]=[];
+  // name = 'Angular';
+  // color: string = 'red';
+  // intern: Intern = new Intern();
+  
+  tasks : Task[] ;
+  
+  // myInterns: Intern[];
+  // formDate: Date[]=[];
+  // formTitle: string[]=[];
+  // formDescription: string[]=[];
+  // formPriority: string[]=[];
+  
 
   constructor(private service: AppService) {}
 
   ngOnInit() {
-    this.myInterns = this.service.interns;
+    //this.myInterns = this.service.interns;
+    this.tasks = this.service.tasks;
   }
 
-  clickMe(param: string) {
-    alert(param)
-  }
+  // clickMe(param: string) {
+  //   alert(param)
+  // }
 
-  submit() {
-    alert(JSON.stringify(this.intern.id))
-  }
-  showFormValues(){
-    alert("priority selected is "+this.formPriority);
-    alert("date selected is "+this.formDate);
+  // submit() {
+  //   alert(JSON.stringify(this.intern.id))
+  // }
+  
+  //  showFormValues(){
+  //   alert("Tasks are :  "+this.service.tasks(0));
+  //   //alert("date selected is "+this.formDate);
+  //
+  // }
 
-  }
+  // saveTask(date:Date,title : string, desc : string, priority : string){
+  //   this.service.tasks.push(new Task(date,title,desc,priority));
+  //   this.tasks = this.service.tasks;
+  //   alert("Task Created");
+  // }
 
-  getFormValues(date:Date,title:string,desc:string,priority:string){
-    this.formDate.push(date);
-    this.formTitle.push(title);
-    this.formDescription.push(desc);
-    this.formPriority.push(priority);
-    alert("hello Dude"+date+" "+title+" "+priority+" "+desc);
-    //showFormValues()
+  showValues() {
+    
 
-  }
+}
   
 }

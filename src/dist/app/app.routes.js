@@ -1,22 +1,20 @@
 "use strict";
 const home_component_1 = require("./home/home.component");
-const login_component_1 = require("./login/login.component");
-const task_component_1 = require("./tasks/task.component");
+//import {LoginComponent} from "./login/login.component";
+const createTask_component_1 = require("./createTask/createTask.component");
 exports.routes = [{
         path: 'home',
         component: home_component_1.HomeComponent
-    }, {
-        path: 'login',
-        component: login_component_1.LoginComponent
-    }, {
-        path: 'details/:id',
-        component: login_component_1.LoginComponent
-    }, {
-        path: 'tasks',
-        component: task_component_1.TaskComponent
-    }, {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full'
-    }];
+    },
+    // },{
+    //   path : 'login',
+    //   component: LoginComponent
+    // },{
+    //   path : 'details/:id',
+    //   component: LoginComponent
+    // },
+    {
+        path: 'createTask',
+        component: createTask_component_1.CreateTaskComponent }
+];
 //# sourceMappingURL=app.routes.js.map

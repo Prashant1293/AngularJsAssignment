@@ -1,25 +1,41 @@
-import {Component} from '@angular/core'
+import {Component, OnInit} from '@angular/core'
 import {Router} from '@angular/router'
+import {Task} from '../task';
+import {AppService} from "../app.service";
+
 
 @Component({
   selector: 'home',
   templateUrl: './app/home/home.component.html',
-  styleUrls: ['']
+  styleUrls: [''],
+  providers : [AppService]
 })
-export class HomeComponent {
+export class HomeComponent implements  OnInit{
 
-  constructor(private router: Router) {}
+  myTasks : Task[];
+  showLink = false;
 
-  goToLogin() {
-    this.router.navigate(['login'])
+  ngOnInit(){
+    this.myTasks = this.service.tasks;
   }
 
-  showTasks(){
-    this.router.navigate(['tasks'])
+  constructor(private service: AppService) {}
+  
+  update() {
+    this.myTasks = this.service.tasks;
+    this.showLink = true;
   }
 
-  sendRouteParams() {
-
-    this.router.navigate(['details',3])
-     }
+  // goToLogin() {
+  //   this.router.navigate(['login'])
+  // }
+  //
+  // showTasks(){
+  //   this.router.navigate(['createTask'])
+  // }
+  //
+  // sendRouteParams() {
+  //
+  //   this.router.navigate(['details',3])
+  //    }
 }

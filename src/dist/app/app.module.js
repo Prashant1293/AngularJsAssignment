@@ -17,8 +17,7 @@ const app_routes_1 = require('./app.routes');
 const app_component_1 = require('./app.component');
 const highlight_directive_1 = require("./highlight.directive");
 const home_component_1 = require("./home/home.component");
-const login_component_1 = require("./login/login.component");
-const task_component_1 = require("./tasks/task.component");
+const createTask_component_1 = require("./createTask/createTask.component");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -28,7 +27,7 @@ AppModule = __decorate([
             forms_1.FormsModule,
             router_1.RouterModule.forRoot(app_routes_1.routes)
         ],
-        declarations: [app_component_1.AppComponent, highlight_directive_1.HighlightDirective, home_component_1.HomeComponent, login_component_1.LoginComponent, task_component_1.TaskComponent],
+        declarations: [app_component_1.AppComponent, highlight_directive_1.HighlightDirective, home_component_1.HomeComponent, createTask_component_1.CreateTaskComponent],
         bootstrap: [app_component_1.AppComponent]
     }), 
     __metadata('design:paramtypes', [])

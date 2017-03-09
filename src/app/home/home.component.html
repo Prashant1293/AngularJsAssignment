@@ -1,9 +1,23 @@
-<hr color="blue">
-<h1 align="center">
-    <button class="btn" (click)="showFormValues()">Show Tasks</button>
-    <button class="btn" (click)="createTasks()">Create Tasks</button>
-</h1>
-<hr color="blue">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
 
-<button (click)="goToLogin()">login</button>
-<button (click)="sendRouteParams()">Params</button>
+<body>
+<button (click)="update()">show Tasks</button>
+
+<div  [hidden]="!showLink" #showDiv>
+
+<table>
+    <tr *ngFor="let task of myTasks">
+        <td > {{task.date}} </td>
+        <td > {{task.title}} </td>
+        <td > {{task.desc}} </td>
+        <td >{{task.priority}} </td>
+    </tr>
+</table>
+</div>
+</body>
+</html>

@@ -8,8 +8,7 @@ import {routes} from './app.routes'
 import { AppComponent }  from './app.component';
 import {HighlightDirective} from "./highlight.directive";
 import {HomeComponent} from "./home/home.component";
-import {LoginComponent} from "./login/login.component";
-import {TaskComponent} from "./tasks/task.component";
+import {CreateTaskComponent} from "./createTask/createTask.component";
 
 @NgModule({
   imports:      [ BrowserModule,
@@ -17,7 +16,7 @@ import {TaskComponent} from "./tasks/task.component";
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  declarations: [ AppComponent, HighlightDirective, HomeComponent, LoginComponent,TaskComponent],
+  declarations: [ AppComponent, HighlightDirective, HomeComponent, CreateTaskComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

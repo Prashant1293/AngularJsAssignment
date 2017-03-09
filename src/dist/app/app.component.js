@@ -9,39 +9,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const intern_1 = require("./intern");
 const app_service_1 = require("./app.service");
 let AppComponent = class AppComponent {
+    // myInterns: Intern[];
+    // formDate: Date[]=[];
+    // formTitle: string[]=[];
+    // formDescription: string[]=[];
+    // formPriority: string[]=[];
     constructor(service) {
         this.service = service;
-        this.name = 'Angular';
-        this.color = 'red';
-        this.intern = new intern_1.Intern();
-        this.formDate = [];
-        this.formTitle = [];
-        this.formDescription = [];
-        this.formPriority = [];
     }
     ngOnInit() {
-        this.myInterns = this.service.interns;
+        //this.myInterns = this.service.interns;
+        this.tasks = this.service.tasks;
     }
-    clickMe(param) {
-        alert(param);
-    }
-    submit() {
-        alert(JSON.stringify(this.intern.id));
-    }
-    showFormValues() {
-        alert("priority selected is " + this.formPriority);
-        alert("date selected is " + this.formDate);
-    }
-    getFormValues(date, title, desc, priority) {
-        this.formDate.push(date);
-        this.formTitle.push(title);
-        this.formDescription.push(desc);
-        this.formPriority.push(priority);
-        alert("hello Dude" + date + " " + title + " " + priority + " " + desc);
-        //showFormValues()
+    // clickMe(param: string) {
+    //   alert(param)
+    // }
+    // submit() {
+    //   alert(JSON.stringify(this.intern.id))
+    // }
+    //  showFormValues(){
+    //   alert("Tasks are :  "+this.service.tasks(0));
+    //   //alert("date selected is "+this.formDate);
+    //
+    // }
+    // saveTask(date:Date,title : string, desc : string, priority : string){
+    //   this.service.tasks.push(new Task(date,title,desc,priority));
+    //   this.tasks = this.service.tasks;
+    //   alert("Task Created");
+    // }
+    showValues() {
     }
 };
 AppComponent = __decorate([
